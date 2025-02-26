@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 800px;
+    max-width: 100%;
+    min-height: 540px;
+    padding: 20px;
+    position: relative;
+}
+
+.container form {
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 30px;
+    height: 100%;
+}
+
+.container input {
+    background-color: #f6f6f6;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #7A7373;
+    padding: 10px 1px;
+    width: 70%;
+    margin: 8px 0;
+}
+
+.container button {
+    background-color: #ff9d12;
+    color: #f6f6f6;
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.container button.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.container a {
+    color: #333;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+.social-icons {
+    margin: 20px 0;
+}
+
+.social-icons a {
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    background-color: #121225;
+    height: 100%;
+    background: linear-gradient(to right, #121225, #121225);
+    color: #f6f6f6;
+    position: relative;
+    left: -100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.active .toggle-right {
+    transform: translateX(200%);
+}
+
+/* Ajustando a parte de logo */
+.login img {
+    width: 70px;
+    position: relative;
+    top: -50px;
+}
+
+.toogle-panel img {
+    width: 300px;
+    position: relative;
+    top: 15px;
+    left: 35px;
+}
+
+/* Adicionando animação aos botões de login */
+#loginTecnico, #loginCliente {
+    background-color: #121225;
+    color: #f6f6f6;
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+#loginTecnico.selected, #loginCliente.selected {
+    background-color: #f6f6f6;
+    color: #121225;
+}
+
+/* Ajuste para os botões de alternância */
+#login, #register {
+    background-color: #121225;
+    color: #f6f6f6;
+    padding: 10px 30px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#login.active, #register.active {
+    background-color: #ff9d12;
+    color: #121225;
+}
+
+/* Corrigindo o botão de login oculto */
+.hidden {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+/* Pequenos ajustes de responsividade */
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .toggle-container {
+        left: 0;
+        width: 100%;
+        height: 60px;
+    }
+
+    .toggle {
+        width: 100%;
+        transform: translateX(0);
+    }
+
+    .toggle-panel {
+        padding: 0 15px;
+    }
+
+    .toogle-panel img {
+        width: 200px;
+    }
+}
